@@ -14,9 +14,9 @@ public class Main {
     public static void main(String[] args) {
         Operador op = new Operador();
         
-        op.llenarLista(20);
-        op.imprimirListaAlumnos();
-        
+        //op.llenarLista(20);
+        //op.imprimirListaAlumnos();
+        /*
             System.out.println();
         op.imprimirCarrera(1);
             System.out.println();
@@ -27,6 +27,15 @@ public class Main {
             
             
         op.imprimirLista(op.generalListaCarrera(5));
+        */
+        
+        //op.almacenarLista();
+        
+        op.recuperarLista();
+        System.out.println();
+        op.imprimirListaAlumnos();
+        
+        
         
     }
     

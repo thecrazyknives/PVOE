@@ -37,10 +37,14 @@ public class Estudiante {
     public void setCarrera(int carrera) {
         this.carrera = carrera;
     }
+    
+    public String toStringArchivo() {
+        return nombre + "," + matricula + "," + carrera;
+    }
 
     @Override
     public String toString() {
-        return "Estudiante:" + "nombre: " + nombre + ", matricula: " + matricula + ", carrera: " + carrera;
+        return "E: " + nombre + "," + matricula + "," + carrera;
     }
   
 }

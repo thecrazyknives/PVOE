@@ -2,7 +2,16 @@
 package operador;
 
 import beans.Estudiante;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -59,4 +68,68 @@ public class Operador {
         
     }
     
+    public void almacenarLista(){
+        try {
+            FileWriter fw = new FileWriter("alumnos.txt",true);
+            
+            BufferedWriter bw;
+            bw = new BufferedWriter(fw);
+            
+            for (Estudiante estudiante : estudiantes) {           
+                bw.write(estudiante.toStringArchivo());
+                bw.newLine();
+            }            
+            
+            bw.flush();
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Operador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+    
+    private Estudiante conversor(String linea){
+        StringTokenizer st = new StringTokenizer(linea,",");
+        
+        
+        String nombre = st.nextToken(),matricula = st.nextToken()  ;
+        int carrera = Integer.parseInt(st.nextToken());
+        
+        Estudiante es = new Estudiante(nombre,matricula,carrera);
+        
+        return es;
+    }
+    
+    public void recuperarLista(){
+        estudiantes = new ArrayList<>();
+        
+        FileReader fr = null;
+        try {            
+            fr = new FileReader("alumnos.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String linea = br.readLine();
+            while(linea != null){              
+                estudiantes.add(conversor(linea));
+                linea = br.readLine();
+            }   
+            br.close();            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Operador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Operador.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {            
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Operador.class.getName()).log(Level.SEVERE, null, ex);
+            }            
+        }    
+    }
+    
+    public void recuperarImprimirLista(){
+        this.recuperarLista();
+        this.imprimirListaAlumnos();
+    }
+   
 }
