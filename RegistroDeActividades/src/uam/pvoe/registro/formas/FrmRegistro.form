@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="bgDeportes">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgCultural">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="bgRecreativa">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNombre" pref="289" max="32767" attributes="0"/>
+                      <Component id="lblMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMatricula" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="lblDeportes" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="rbFutbol" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbVoleybol" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="rbBasquetbol" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblCultural" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="rbTeatro" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbDanza" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="rbDebate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbCine" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblRecreativa" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="rbDibujo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbAjedrez" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="rbEscritura" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="rbFoto" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="89" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnEnviar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtNombre" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblMatricula" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txtMatricula" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lblDeportes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rbFutbol" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbVoleybol" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbBasquetbol" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblCultural" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rbTeatro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbDanza" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbDebate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbCine" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblRecreativa" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rbDibujo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbAjedrez" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbEscritura" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbFoto" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <Component id="btnEnviar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblNombre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNombre">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMatricula">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Matricula"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtMatricula">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDeportes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deportes"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbFutbol">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Futbol"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbVoleybol">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voleybol"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbBasquetbol">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Basquetbol"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCultural">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cultural"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbTeatro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Teatro"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbDanza">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Danza"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbDebate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Debate"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbCine">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cine"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRecreativa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Recreativa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbDibujo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dibujo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbAjedrez">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ajedrez"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbEscritura">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Escritura"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbFoto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Foto"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEnviar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enviar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnviarActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
