@@ -8,7 +8,7 @@ import uam.pvoe.fraccion.clases.Fraccion;
 
 /**
  *
- * @author alumno31
+ * @author Kranlo
  */
 public class Generador {
 

@@ -8,7 +8,7 @@ import uam.pvoe.fraccion.clases.Fraccion;
 
 /**
  *
- * @author alumno31
+ * @author Kranlo
  */
 public class Operador {
     private Fraccion f1;
@@ -38,23 +38,17 @@ public class Operador {
     public boolean suma(Fraccion fRes){
         int denominador,numerador;
         denominador = f1.getDenominador() * f2.getDenominador();
-        numerador = f1.getNumerador() + f2.getNumerador();
+        numerador = f1.getNumerador()*f2.getDenominador() + f2.getNumerador()*f1.getDenominador();
         
-        if(numerador == fRes.getNumerador() && denominador == fRes.getDenominador())
-            return true;
-        else 
-            return false;        
+        return numerador == fRes.getNumerador() && denominador == fRes.getDenominador();        
     }
     
     public boolean resta(Fraccion fRes){
         int denominador,numerador;
         denominador = f1.getDenominador() * f2.getDenominador();
-        numerador = f1.getNumerador() - f2.getNumerador();
+        numerador = f1.getNumerador()*f2.getDenominador() - f2.getNumerador()*f1.getDenominador();
         
-        if(numerador == fRes.getNumerador() && denominador == fRes.getDenominador())
-            return true;
-        else 
-            return false;        
+        return numerador == fRes.getNumerador() && denominador == fRes.getDenominador();        
     }
     
     public boolean multiplicacion(Fraccion fRes){
@@ -62,10 +56,7 @@ public class Operador {
         denominador = f1.getDenominador() * f2.getDenominador();
         numerador = f1.getNumerador() * f2.getNumerador();
         
-        if(numerador == fRes.getNumerador() && denominador == fRes.getDenominador())
-            return true;
-        else 
-            return false;         
+        return numerador == fRes.getNumerador() && denominador == fRes.getDenominador();         
     }
     
     public boolean division(Fraccion fRes){
@@ -73,10 +64,7 @@ public class Operador {
         denominador = f1.getDenominador() * f2.getNumerador() ;
         numerador = f1.getNumerador() * f2.getDenominador();
         
-        if(numerador == fRes.getNumerador() && denominador == fRes.getDenominador())
-            return true;
-        else 
-            return false;         
+        return numerador == fRes.getNumerador() && denominador == fRes.getDenominador();         
     }
 
 }

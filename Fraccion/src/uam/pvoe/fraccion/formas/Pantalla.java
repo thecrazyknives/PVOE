@@ -4,17 +4,19 @@
  */
 package uam.pvoe.fraccion.formas;
 
+import java.awt.Color;
 import uam.pvoe.fraccion.clases.Fraccion;
 import uam.pvoe.fraccion.operaciones.Generador;
 import uam.pvoe.fraccion.operaciones.Operador;
 
 /**
  *
- * @author alumno31
+ * @author Kranlo
  */
 public class Pantalla extends javax.swing.JFrame {
 
-    private Fraccion f1,f2,fRes; // variables globales
+    private Fraccion f1,f2,fRes = new Fraccion(); 
+    Operador op;
     
     /**
      * Creates new form Pantalla
@@ -28,7 +30,7 @@ public class Pantalla extends javax.swing.JFrame {
         Generador gen = new Generador();
         f1 = gen.generar();
         f2 = gen.generar();
-        Operador op = new Operador(f1,f2);
+        op = new Operador(f1,f2);
         fResNumerador.setText("");
         fResDenominador.setText("");
         
@@ -36,7 +38,20 @@ public class Pantalla extends javax.swing.JFrame {
         f1Denominador.setText(""+f1.getDenominador());
         
         f2Numerador.setText(""+f2.getNumerador());
-        f2Denominador.setText(""+f2.getDenominador());        
+        f2Denominador.setText(""+f2.getDenominador()); 
+        
+        f1Numerador.setBackground(Color.LIGHT_GRAY);
+        f1Denominador.setBackground(Color.LIGHT_GRAY);
+        f2Numerador.setBackground(Color.LIGHT_GRAY);
+        f2Denominador.setBackground(Color.LIGHT_GRAY);
+        
+        f1Numerador.setEditable(false);
+        f1Denominador.setEditable(false);
+        f2Numerador.setEditable(false);
+        f2Denominador.setEditable(false);
+        
+        fResNumerador.setBackground(Color.WHITE);
+        fResDenominador.setBackground(Color.WHITE);
     }
 
     
@@ -66,13 +81,13 @@ public class Pantalla extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        f1Numerador.setText("jTextField1");
+        f1Numerador.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
-        f1Denominador.setText("jTextField1");
+        f1Denominador.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
-        f2Numerador.setText("jTextField1");
+        f2Numerador.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
-        f2Denominador.setText("jTextField1");
+        f2Denominador.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
 
         lbIgual.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbIgual.setText("=");
@@ -85,10 +100,25 @@ public class Pantalla extends javax.swing.JFrame {
         });
 
         btnResta.setText("RESTA");
+        btnResta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaActionPerformed(evt);
+            }
+        });
 
         btnMultiplicacion.setText("MULT");
+        btnMultiplicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicacionActionPerformed(evt);
+            }
+        });
 
         btnDivision.setText("DIV");
+        btnDivision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivisionActionPerformed(evt);
+            }
+        });
 
         btnReset.setText("RESET");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
@@ -97,9 +127,19 @@ public class Pantalla extends javax.swing.JFrame {
             }
         });
 
-        fResNumerador.setText("jTextField1");
+        fResNumerador.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        fResNumerador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fResNumeradorKeyReleased(evt);
+            }
+        });
 
-        fResDenominador.setText("jTextField1");
+        fResDenominador.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        fResDenominador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fResDenominadorKeyReleased(evt);
+            }
+        });
 
         lblOperacion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblOperacion.setText("+");
@@ -113,17 +153,12 @@ public class Pantalla extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(f1Denominador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(f1Numerador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(f1Denominador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(f1Numerador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(f2Denominador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(f2Numerador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(68, 68, 68))
+                            .addComponent(f2Numerador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnSuma)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -132,13 +167,12 @@ public class Pantalla extends javax.swing.JFrame {
                         .addComponent(btnMultiplicacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDivision)))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReset)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fResNumerador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fResDenominador, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -186,9 +220,77 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         lblOperacion.setText("+");
-        
-        
+        if(op.suma(fRes)){
+            fResNumerador.setBackground(Color.GREEN);
+            fResDenominador.setBackground(Color.GREEN);
+        } else {
+            fResNumerador.setBackground(Color.RED);
+            fResDenominador.setBackground(Color.RED); 
+            System.out.println("Resultado incorrecto!");
+        }       
     }//GEN-LAST:event_btnSumaActionPerformed
+
+    private void fResNumeradorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fResNumeradorKeyReleased
+        try {
+            fResNumerador.setBackground(Color.WHITE);
+            fResDenominador.setBackground(Color.WHITE);
+            fRes.setNumerador(Integer.parseInt(fResNumerador.getText()));
+        } catch (NumberFormatException e) {
+            System.out.println("Ingrese un numero valido para el numerador");
+            // fResNumerador.setBackground(Color.BLUE);
+        }
+    }//GEN-LAST:event_fResNumeradorKeyReleased
+
+    private void fResDenominadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fResDenominadorKeyReleased
+        try {
+            fResDenominador.setBackground(Color.WHITE);
+            fResNumerador.setBackground(Color.WHITE);
+            fRes.setDenominador(Integer.parseInt(fResDenominador.getText()));
+        } catch (NumberFormatException e) {
+            System.out.println("Ingrese un numero valido para el numerador");
+            // fResDenominador.setBackground(Color.BLUE);
+        }
+    }//GEN-LAST:event_fResDenominadorKeyReleased
+
+    private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
+        lblOperacion.setText("-");
+        if(op.resta(fRes)){
+            fResNumerador.setBackground(Color.GREEN);
+            fResDenominador.setBackground(Color.GREEN);
+            System.out.println("Resultado correcto!");
+            
+        } else {
+            fResNumerador.setBackground(Color.RED);
+            fResDenominador.setBackground(Color.RED);  
+            System.out.println("Resultado incorrecto!");
+        } 
+    }//GEN-LAST:event_btnRestaActionPerformed
+
+    private void btnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacionActionPerformed
+        lblOperacion.setText("X");
+        if(op.multiplicacion(fRes)){
+            fResNumerador.setBackground(Color.GREEN);
+            fResDenominador.setBackground(Color.GREEN);
+            System.out.println("Resultado correcto!");
+        } else {
+            fResNumerador.setBackground(Color.RED);
+            fResDenominador.setBackground(Color.RED);  
+            System.out.println("Resultado incorrecto!");
+        } 
+    }//GEN-LAST:event_btnMultiplicacionActionPerformed
+
+    private void btnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisionActionPerformed
+        lblOperacion.setText("%");
+        if(op.division(fRes)){
+            fResNumerador.setBackground(Color.GREEN);
+            fResDenominador.setBackground(Color.GREEN);
+            System.out.println("Resultado correcto!");
+        } else {
+            fResNumerador.setBackground(Color.RED);
+            fResDenominador.setBackground(Color.RED);  
+            System.out.println("Resultado incorrecto!");
+        }
+    }//GEN-LAST:event_btnDivisionActionPerformed
 
     /**
      * @param args the command line arguments

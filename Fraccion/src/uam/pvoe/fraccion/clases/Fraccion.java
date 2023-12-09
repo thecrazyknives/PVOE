@@ -2,11 +2,14 @@ package uam.pvoe.fraccion.clases;
 
 /**
  *
- * @author alumno31
+ * @author Kranlo
  */
 public class Fraccion {
     private int numerador;
     private int denominador;
+    
+    public Fraccion() {
+    }
 
     public Fraccion(int numerador, int denominador) {
         this.numerador = numerador;
