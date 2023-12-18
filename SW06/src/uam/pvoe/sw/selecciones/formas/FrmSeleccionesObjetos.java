@@ -6,16 +6,16 @@
 package uam.pvoe.sw.selecciones.formas;
 
 
+import java.util.Enumeration;
 import java.util.LinkedList;
+import javax.swing.AbstractButton;
 import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
 import uam.pvoe.sw.selecciones.clases.Alumno;
 import uam.pvoe.sw.selecciones.clases.Licenciatura;
 import uam.pvoe.sw.selecciones.clases.Opcion;
 import uam.pvoe.sw.selecciones.negocio.AdministrarAlumnos;
 import uam.pvoe.sw.selecciones.negocio.AdministrarLicenciaturas;
-
-
-
 
 /**
  *
@@ -79,8 +79,18 @@ public class FrmSeleccionesObjetos extends javax.swing.JFrame {
         });
 
         btnMerece.setText("jRadioButton1");
+        btnMerece.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnMereceStateChanged(evt);
+            }
+        });
 
         btnNoMerece.setText("jRadioButton1");
+        btnNoMerece.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnNoMereceStateChanged(evt);
+            }
+        });
 
         chkPronabe.setText("jCheckBox1");
 
@@ -181,9 +191,8 @@ public class FrmSeleccionesObjetos extends javax.swing.JFrame {
     private void llenarBecas(){
         Opcion PRONABE = new Opcion("PRONADE","Beca de gobierno PRONABE");
         Opcion UAM= new Opcion("UAM","Beca institucional UAM");
-        Opcion CDMX = new Opcion("CDMS","Beca de apoyo CDMX");
+        Opcion CDMX = new Opcion("CDMS","Beca de apoyo CDMX");        
         
-        chkPronabe.setSelected(true);
         chkPronabe.setText(PRONABE.getValor());
         chkPronabe.putClientProperty("llave",PRONABE);
         
@@ -195,14 +204,41 @@ public class FrmSeleccionesObjetos extends javax.swing.JFrame {
     }
     
     private void cmbListaLicenciaturasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbListaLicenciaturasMousePressed
-   
         Licenciatura eleccion = (Licenciatura)cmbListaLicenciaturas.getSelectedItem();
         llenarAlumnos(eleccion.getClave());
     }//GEN-LAST:event_cmbListaLicenciaturasMousePressed
 
     private void btnObtenerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerDatosActionPerformed
         System.out.println(cmbListaAlumnos.getSelectedItem());
+        System.out.println(seleccionarApoyo());       
+        LinkedList<Opcion> becas = seleccionarBecas();
+            for (Opcion beca : becas) {
+                System.out.println(beca);
+            }
+        
     }//GEN-LAST:event_btnObtenerDatosActionPerformed
+
+    private void btnMereceStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnMereceStateChanged
+        if(btnMerece.isSelected()){
+            for (int i = 0; i < listaChkBoxes.size(); i++) {
+                listaChkBoxes.get(i).setEnabled(true);
+                listaChkBoxes.get(i).setSelected(false);
+            }
+        } else {
+            for (int i = 0; i < listaChkBoxes.size(); i++) {
+                listaChkBoxes.get(i).setEnabled(false);
+                listaChkBoxes.get(i).setSelected(false);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_btnMereceStateChanged
+
+    private void btnNoMereceStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnNoMereceStateChanged
+        //for (int i = 0; i < listaChkBoxes.size(); i++) {
+            //listaChkBoxes.get(i).setEnabled(false);   
+        //}
+    }//GEN-LAST:event_btnNoMereceStateChanged
 
     /**
      * @param args the command line arguments
@@ -239,6 +275,33 @@ public class FrmSeleccionesObjetos extends javax.swing.JFrame {
         });
     }
     
+    // TODO : refactorizar esto
+    public LinkedList<Opcion> seleccionarBecas(){
+        LinkedList<JCheckBox> lista = new LinkedList(); 
+        for (int i = 0; i < listaChkBoxes.size(); i++) {
+           lista.add(listaChkBoxes.get(i));            
+        }
+
+        LinkedList<Opcion> listaSeleccionada = new LinkedList();
+        for (JCheckBox checkBox : lista) {
+            if(checkBox.isSelected())
+                listaSeleccionada.add((Opcion) checkBox.getClientProperty("llave"));
+        }
+      
+        return listaSeleccionada;
+    }
+    
+    public Opcion seleccionarApoyo(){
+        Enumeration<AbstractButton> btnGrp = btnGrpApoyo.getElements();
+        Opcion resultado = null;
+        while(btnGrp.hasMoreElements()){
+            JRadioButton btnAux = (JRadioButton)btnGrp.nextElement();
+            if(btnAux.isSelected())
+                resultado = (Opcion) btnAux.getClientProperty("llave");
+        }
+        return resultado;
+    }
+    
     public void obtenerLicenciaturas(){      
         cmbListaLicenciaturas.removeAllItems();
         AdministrarLicenciaturas opL = new AdministrarLicenciaturas();
@@ -260,6 +323,11 @@ public class FrmSeleccionesObjetos extends javax.swing.JFrame {
         listaChkBoxes.add(chkUam);
         listaChkBoxes.add(chkCDMX);
         listaChkBoxes.add(chkPronabe);
+        
+        for (int i = 0; i < listaChkBoxes.size(); i++) {
+            listaChkBoxes.get(i).setEnabled(true);
+            listaChkBoxes.get(i).setSelected(false);
+        }
     }
 
     

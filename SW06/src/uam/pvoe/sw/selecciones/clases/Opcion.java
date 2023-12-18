@@ -36,6 +36,11 @@ public class Opcion {
         this.valor = valor;
     }
 
+    @Override
+    public String toString() {
+        return "Opcion : " + "K = " + llave + ", V = " + valor ;
+    }
+
    
 
 

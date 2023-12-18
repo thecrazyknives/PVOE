@@ -147,11 +147,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jRadioButton1"/>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="btnMereceStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="btnNoMerece">
       <Properties>
         <Property name="text" type="java.lang.String" value="jRadioButton1"/>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="btnNoMereceStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="chkPronabe">
       <Properties>
